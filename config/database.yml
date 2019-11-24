@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: postgres
+  password: postgres
+
+development:
+  <<: *default
+  database: geocode_development
+
+test:
+  <<: *default
+  database: geocode_test
+
+production:
+  <<: *default
+  database: geocode_production
+  username: geocode
+  password: <%= ENV['GEOCODE_DATABASE_PASSWORD'] %>
